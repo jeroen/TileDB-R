@@ -19,10 +19,11 @@ Save a \code{tiledb_config} object ot a local text file
 }
 \examples{
 \dontshow{ctx <- tiledb_ctx(limitTileDBCores())}
+\dontrun{
 tmp <- tempfile()
 cfg <- tiledb_config(c("sm.tile_cache_size" = "10"))
 pth <- tiledb_config_save(cfg, tmp)
 
 cat(readLines(pth), sep = "\n")
-
+}
 }

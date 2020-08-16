@@ -70,12 +70,13 @@ setContext <- function(ctx) tiledb_set_context(ctx)
 #' @return `tiledb_ctx` object
 #' @examples
 #' \dontshow{ctx <- tiledb_ctx(limitTileDBCores())}
+#' \dontrun{
 #' # default configuration
 #' ctx <- tiledb_ctx()
 #'
 #' # optionally set config parameters
 #' ctx <- tiledb_ctx(c("sm.tile_cache_size" = "100"))
-#'
+#' }
 #' @importFrom methods new
 #' @importFrom methods is
 #' @export tiledb_ctx
@@ -120,10 +121,11 @@ setGeneric("config", function(object, ...) {
 #' @return `tiledb_config` object associated with the `tiledb_ctx` instance
 #' @examples
 #' \dontshow{ctx <- tiledb_ctx(limitTileDBCores())}
+#' \dontrun{
 #' ctx <- tiledb_ctx(c("sm.tile_cache_size" = "10"))
 #' cfg <- config(ctx)
 #' cfg["sm.tile_cache_size"]
-#'
+#' }
 #' @export
 setMethod("config", signature(object = "tiledb_ctx"),
           function(object = tiledb_get_context()) {
@@ -160,9 +162,10 @@ tiledb_is_supported_fs <- function(scheme, object = tiledb_get_context()) {
 #' @param value string
 #' @examples
 #' \dontshow{ctx <- tiledb_ctx(limitTileDBCores())}
+#' \dontrun{
 #' ctx <- tiledb_ctx(c("sm.tile_cache_size" = "10"))
 #' cfg <- tiledb_ctx_set_tag(ctx, "tag", "value")
-#'
+#' }
 #' @export
 tiledb_ctx_set_tag <- function(object, key, value) {
   stopifnot(is(object, "tiledb_ctx"))

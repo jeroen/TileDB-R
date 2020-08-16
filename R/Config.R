@@ -41,13 +41,14 @@ tiledb_config.from_ptr <- function(ptr) {
 #' @return `tiledb_config` object
 #' @examples
 #' \dontshow{ctx <- tiledb_ctx(limitTileDBCores())}
+#' \dontrun{
 #' cfg <- tiledb_config()
 #' cfg["sm.tile_cache_size"]
 #'
 #' # set tile cache size to custom value
 #' cfg <- tiledb_config(c("sm.tile_cache_size" = "100"))
 #' cfg["sm.tile_cache_size"]
-#'
+#' }
 #' @importFrom methods new
 #' @export tiledb_config
 tiledb_config <- function(config = NA_character_) {
@@ -100,13 +101,14 @@ setMethod("[", "tiledb_config",
 #' @return updated `tiledb_config` object
 #' @examples
 #' \dontshow{ctx <- tiledb_ctx(limitTileDBCores())}
+#' \dontrun{
 #' cfg <- tiledb_config()
 #' cfg["sm.tile_cache_size"]
 #'
 #' # set tile cache size to custom value
 #' cfg["sm.tile_cache_size"] <- 100
 #' cfg["sm.tile_cache_size"]
-#'
+#' }
 #' @aliases [<-,tiledb_config
 #' @aliases [<-,tiledb_config-method
 #' @aliases [<-,tiledb_config,ANY,tiledb_config-method
@@ -150,12 +152,13 @@ setMethod("show", signature(object = "tiledb_config"),
 #' @return path to created config file
 #' @examples
 #' \dontshow{ctx <- tiledb_ctx(limitTileDBCores())}
+#' \dontrun{
 #' tmp <- tempfile()
 #' cfg <- tiledb_config(c("sm.tile_cache_size" = "10"))
 #' pth <- tiledb_config_save(cfg, tmp)
 #'
 #' cat(readLines(pth), sep = "\n")
-#'
+#' }
 #' @export
 tiledb_config_save <- function(config, path) {
   stopifnot(class(config) == "tiledb_config")
@@ -168,12 +171,13 @@ tiledb_config_save <- function(config, path) {
 #' @param path path to the config file
 #' @examples
 #' \dontshow{ctx <- tiledb_ctx(limitTileDBCores())}
+#' \dontrun{
 #' tmp <- tempfile()
 #' cfg <- tiledb_config(c("sm.tile_cache_size" = "10"))
 #' pth <- tiledb_config_save(cfg, tmp)
 #' cfg <- tiledb_config_load(pth)
 #' cfg["sm.tile_cache_size"]
-#'
+#' }
 #' @export
 tiledb_config_load <- function(path) {
   stopifnot(typeof(path) == "character")

@@ -1,6 +1,6 @@
 library(tinytest)
 library(tiledb)
-
+exit_file("skip libtiledb")
 tiledb_ctx(limitTileDBCores())
 
 #test_that("version is valid", {

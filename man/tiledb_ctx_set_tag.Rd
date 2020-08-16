@@ -18,7 +18,8 @@ Sets a string:string "tag" on the Ctx
 }
 \examples{
 \dontshow{ctx <- tiledb_ctx(limitTileDBCores())}
+\dontrun{
 ctx <- tiledb_ctx(c("sm.tile_cache_size" = "10"))
 cfg <- tiledb_ctx_set_tag(ctx, "tag", "value")
-
+}
 }

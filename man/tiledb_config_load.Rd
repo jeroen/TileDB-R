@@ -14,10 +14,11 @@ Load a saved \code{tiledb_config} file from disk
 }
 \examples{
 \dontshow{ctx <- tiledb_ctx(limitTileDBCores())}
+\dontrun{
 tmp <- tempfile()
 cfg <- tiledb_config(c("sm.tile_cache_size" = "10"))
 pth <- tiledb_config_save(cfg, tmp)
 cfg <- tiledb_config_load(pth)
 cfg["sm.tile_cache_size"]
-
+}
 }

@@ -19,10 +19,11 @@ Creates a \code{tiledb_ctx} object
 }
 \examples{
 \dontshow{ctx <- tiledb_ctx(limitTileDBCores())}
+\dontrun{
 # default configuration
 ctx <- tiledb_ctx()
 
 # optionally set config parameters
 ctx <- tiledb_ctx(c("sm.tile_cache_size" = "100"))
-
+}
 }

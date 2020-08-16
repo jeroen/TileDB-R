@@ -1,6 +1,6 @@
 library(tinytest)
 library(tiledb)
-
+exit_file("no ctx")
 tiledb_ctx(limitTileDBCores())
 
 #test_that("tiledb_ctx default constructor", {
